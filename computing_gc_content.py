@@ -7,10 +7,12 @@ with open('gc_content.txt', 'r') as data:
     name = ""
     dna_string = ""
     for line in data.readlines():
+        # new item
         if line.startswith(">"):
             gc_contents.append((name, dna_string))
             name = line[1:].replace('\n', '')
             dna_string = ""
+        # continue parsing item
         else:
             dna_string += line.replace('\n', '')
 
